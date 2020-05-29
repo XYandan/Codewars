@@ -62,27 +62,3 @@ s =  "L'économie (du grec ancien) est une activité humaine qui consiste en la 
 v = moving_shift(s,1)
 print(moving_shift(s,1))
 a = demoving_shift(v,1)
-print(a)
-class solution():
-    def moving_shift(s, shift):
-        l, sft = int(round((float(len(s)) / float(5)) + 0.49)), 1
-        out = code(shift, s, sft)
-        out = [out[i * l:i * l + l] for i, blah in enumerate(out[::l])]
-        return out if len(out) == 5 else out + ['']
-
-
-    def demoving_shift(s, shift):
-        s, sft = ''.join(s), -1
-        return code(shift, s, sft)
-
-
-    def code(shift, s, sft):
-        ciper, out = 'abcdefghijklmnopqrstuvwxyz', ''
-        for i in range(len(s)):
-            if s[i] in ciper.lower():
-                out += ciper.lower()[(ciper.lower().index(s[i]) + sft*(i + shift)) % 26]
-            elif s[i] in ciper.upper():
-                out += ciper.upper()[(ciper.upper().index(s[i]) + sft*(i + shift)) % 26]
-            else:
-                out += s[i]
-        return out
