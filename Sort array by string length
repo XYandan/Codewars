@@ -1,0 +1,4 @@
+def sort_by_length(arr):
+    arr.sort(key = lambda i:len(i),reverse=False)
+    return arr
+    pass
